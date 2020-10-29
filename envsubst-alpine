@@ -1,8 +1,10 @@
-FROM alpine:3.10
+FROM alpine:3.12
 
 RUN apk add --update --no-cache \
     bash \
     coreutils \
     gettext \
-    jq
-
+    jq \
+    curl \
+    && curl -L https://github.com/frenck/semver/releases/download/v0.3.0/semver_linux_amd64 -o /usr/bin/semver && \
+    chmod +x /usr/bin/semver;
